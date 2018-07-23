@@ -12,10 +12,10 @@ import { GithubService } from '../../services/github.service';
 import { toast } from 'angular2-materialize';
 
 // MODELS
-import { User } from './../../model/user.model';
-import { Repo } from '../../model/repo.model';
-import { Following } from '../../model/following.model';
-import { Star } from '../../model/star.model';
+// import { User } from './../../model/user.model';
+// import { Repo } from '../../model/repo.model';
+// import { Following } from '../../model/following.model';
+// import { Star } from '../../model/star.model';
 
 // import * as $ from 'jquery';
 declare let $: any;
