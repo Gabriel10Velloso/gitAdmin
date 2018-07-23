@@ -2,13 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
+## Change Materlized.css Folder
+OBS: in the package node_modules\materialize-css\dist\materialize.css
+.tabs .indicator { 
+    height: 5px;  
+    background-color: #e65100 ;
+}
+was changed the color and height
+
 ## Development server
-/client npm install
-Run `/client ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+folder/client ... npm install
+Run ...`folder/client .. ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Build
 
-Run `/client ng build`--prod to build the project. The build artifacts will be stored in the `back/dist` directory. Use the `--prod` flag for a production build.
+Run `... folder/client ... ng build`--prod ... to build the project. The build artifacts will be stored in the `back/dist` directory.
 
 ## Link page
 
@@ -21,4 +29,4 @@ src\app\pages\git-dashboard\git-dashboard.component.html
 
 # Folder Back
 
-ng build --prod create the dist folder and - npm run devstart - Navigate to `http://localhost:3000`
+"ng build --prod" create the dist folder and "npm run devstart" - Navigate to `http://localhost:3000`
