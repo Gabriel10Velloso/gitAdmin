@@ -1,0 +1,66 @@
+@media only screen and (min-width: 266px) {
+    //   //   //   //   //   //   //  
+    //  START - MINE SIDEBAT (USER INFO)
+    //   //   //   //   //   //   // 
+    
+    .sideBarUser { //será desabilitado e o sideBarUser2 habilitado com 601px  
+        position: absolute;
+        border-radius: 10px;
+        margin-top: 0px;
+        left: -100%;
+        width: 100%;
+        height: auto;
+        -webkit-transition: all 0.7s ease-in-out;
+        transition: all 0.7s ease-in-out;
+        float: left;
+        z-index: 10;
+    }
+    .sideBarUser2 {
+        display: none; //será habilitado com 601px de forma estática 
+    }
+    .hide-bar.sideBarUser {
+        transform: translateX(100%);
+        width: 100%;
+        position: absolute;
+    }
+    .iconUser {
+        transform: rotate(180deg);
+        margin: 14px 0px 0px -5px;
+        font-size: 40px;
+        z-index: 10;
+    }
+    .iconVirar.iconUser {
+        transform: rotate(0deg);
+    } //  END - MINE SIDEBAR (USER INFO)  
+}
+
+@media only screen and (min-width: 601px) {
+
+    //   //   //   //   //   //   //  
+    //  START - MINE SIDEBAR (USER INFO)
+    //   //   //   //   //   //   // 
+
+    .sideBarUser { // desbilitado com 601px
+        display: none;
+    }
+    .iconUser { // desbilitado com 601px
+        display: none;
+    }
+    .sideBarUser2 {
+        // habilitado com 601px
+        display: inline-block;
+        position: absolute;
+        // background: black;
+        border-radius: 10px;
+        margin-top: 150px;
+        left: 0%;
+        width: 100%;
+        height: auto;
+    } //  END - MINE SIDEBAR (USER INFO)    
+}
+
+@media only screen and (min-width: 993px) {
+    .sideBarUser2 {
+        width: 950px;
+    }
+}

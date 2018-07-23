@@ -1,0 +1,360 @@
+/**
+* @author Gabriel Velloso
+* @email gavelloso@gmail.com
+*/
+
+@media only screen and (max-width: 265.8px) {
+    // Desaparecer Layout
+    section {
+        display: none !important;
+    }
+    .carousel {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 266px) {
+    .fundo { // fundo layout 
+        width: 100%;
+        height: auto;
+        min-height: 500px;
+        bottom: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+    }
+    //<!-- ============================================================== -->
+    //  <!-- ⏩  START - Navbar-fixed - topo layout -->
+    // <!-- ============================================================== -->
+    .imgGit {
+        width: 35px;
+        height: 35px;
+        margin: 10px 0px 0px 10px;
+    }
+    .gitHubProfile, .gitHubProfile2 {
+        display: none;
+    }
+    .inputSearch {
+        width: 65%;
+        margin-left: 30%;
+        margin-top: -70px; 
+    } //  <!-- ⏩ End - Navbar-fixed - topo layout -->
+    //<!-- ============================================================== -->
+    //<!-- ⏲ START - Section 1 - Cabeçalho, Tabs(Repos, Starred), List Repos e Starres -->
+    //<!-- ============================================================== -->
+    .contanierTopUser {
+        margin-top: 30px;
+    }
+    //   //   //   //   //   //   //  
+    //         START - USER 
+    //   //   //   //   //   //   //   
+    .imgUser {
+        width: 70px;
+        height: 70px;
+    }
+    .userName {
+        font-size: 16px;
+        margin: 20px 0px 0px 75px;
+        position: absolute;
+    }
+    .userBio {
+        font-size: 11px;
+        margin: -35px 0px 0px 75px;
+        position: absolute;
+    } // END - USER 
+
+    //   //   //   //   //   //   //  
+    //         START - LABELS 
+    //   //   //   //   //   //   //       
+    .labalsContainers {
+        margin-top: 89px;
+        padding-left: 45px;
+        position: absolute;
+    }
+    %labels {   // coloequei apenas um exemplo de scss      
+        padding: 2px 7px 2px 7px;
+        margin-right: 5px;
+        border-radius: 5px;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .success,
+    .primary,
+    .info,
+    .warning {  // coloequei apenas um exemplo de scss      
+        @extend %labels;
+    } // END - LABELS 
+
+    //   //   //   //   //   //   //  
+    //  START - TABS (REPOS e STARRED)
+    //   //   //   //   //   //   // 
+    .tabContainer {
+        margin-top: 20px;
+    }
+    .tabs li {
+        width: 50%;
+    }
+    .tabs .tab a:hover,
+    .tabs .tab a.active {
+        font-weight: bold;
+        color: #050505;
+    }
+    .tab a {
+        color: #8d8d8d;
+    }
+    %numbersTab { // coloequei apenas um exemplo de scss
+        padding: 2px 2px 2px 4px;
+        margin-right: 5px;
+        border-radius: 5px;
+        font-size: 12px;
+        line-height: 5px;
+    }
+    .numberRepo,
+    .numberStarred {  // coloequei apenas um exemplo de scss
+        @extend %numbersTab;
+    }
+    .tabRepo { //direction: rtl; //mudar barra de rolagem de posição  
+        height: 60vh;
+        max-height: 60vh;
+        overflow-x: hidden;
+        margin-top: 20px;
+    }
+    // scrollbar Repo
+    .tabRepo::-webkit-scrollbar-track {
+        background-color: #F4F4F4;
+    }
+    .tabRepo::-webkit-scrollbar {
+        width: 8px;
+        background: rgb(244, 244, 244);
+    }
+    .tabRepo::-webkit-scrollbar-thumb {
+        background: #dad7d7;
+    }
+    .iconSearchRpo {
+        padding-top: 15px;
+    }
+    .cardRepo {
+        margin-top: 60px;
+        margin-bottom: -45px;
+    }
+    .tabStarred {
+        height: 60vh;
+        max-height: 60vh;
+        overflow-x: hidden;
+        margin-top: 20px;
+    }
+    // scrollbar Starred
+    .tabStarred::-webkit-scrollbar-track {
+        background-color: #F4F4F4;
+    }
+    .tabStarred::-webkit-scrollbar {
+        width: 8px;
+        background: rgb(244, 244, 244);
+    }
+    .tabStarred::-webkit-scrollbar-thumb {
+        background: #dad7d7;
+    }
+    .cardStarred {
+        margin-top: 60px;
+        margin-bottom: -45px;
+        overflow: hidden;
+    }
+    // END TABS
+
+    //   //   //   //   //   //   //  
+    //  START - CAROUSEL 
+    //   //   //   //   //   //   // 
+    .carouselTop {
+        background: rgb(29, 29, 29);
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        top: 0;
+        margin: 0;
+        padding: 0; 
+    }
+    .carousel {
+        height: 250px;      
+    }
+    .carousel-item {
+        width: 80%;
+        height: 85%;
+        margin: 10px auto;
+        // height: auto;
+    }
+    .imgCarousel {
+        width: 100%;
+        height: 50%;
+    } 
+    .following{
+        margin: 10px;
+        color: #F4F4F4;
+    }    
+    //END CAROUSEL
+}
+
+@media only screen and (min-width: 601px) {
+    .imgGit { // img git navbar
+        width: 35px;
+        height: 35px;
+        margin: 15px 0px 0px 30px;
+    }
+    .gitHubProfile {  // aparece nome GitGub 
+        display: inline-block;
+        font-size: 25px;
+        margin: 5px 0px 0px 10px;
+        position: absolute; 
+    }
+    .gitHubProfile2{  // aparece nome profile
+        display: inline-block;
+        margin: 5px 0px 0px 95px;
+        position: absolute;
+        font-size: 20px;
+    }
+    .inputSearch {// inputSearch navbar
+        width: 45%;
+        margin-left: 50%;
+        margin-top: -80px; 
+    }
+    .fundo {// fundo layout 
+        min-height: 700px;
+    }
+    //<!-- ============================================================== -->
+    //<!-- ⏲ START - Section 1 - Cabeçalho, Tabs(Repos, Starred), List Repos e Starres -->
+    //<!-- ============================================================== --> 
+
+    //   //   //   //   //   //   //  
+    //  START - TABS (REPOS e STARRED)
+    //   //   //   //   //   //   // 
+    .numberRepo,
+    .numberStarred {
+        // coloequei apenas um exemplo de scss
+        padding: 1px 1px 1px 5px;
+        border-radius: 5px;
+        font-size: 16px;
+        line-height: 0px;
+        // position: absolute;
+    }
+    .tab a {
+        font-size: 18px;
+        position: relative;
+    } //END - TABS (REPOS e STARRED)
+
+    //   //   //   //   //   //   //  
+    //  START - CAROUSEL 
+    //   //   //   //   //   //   //   
+    .carousel-item {
+        width: 40%;
+        height: 85%;
+        // height: auto;
+    }
+    //END CAROUSEL
+}
+
+@media only screen and (min-width: 993px) {
+    
+    .fundo {// fundo layout 
+        min-height: 750px;
+    }
+    //<!-- ============================================================== -->
+    //<!-- ⏲ START - Section 1 - Cabeçalho, Tabs(Repos, Starred), List Repos e Starres -->
+    //<!-- ============================================================== -->
+
+    //   //   //   //   //   //   //  
+    //         START - USER 
+    //   //   //   //   //   //   //   
+    .imgUser {
+        width: 150px;
+        height: 150px;
+    }
+    .userName {
+        font-size: 25px;
+        margin: 20px 0px 0px 150px;
+        position: absolute;
+    }
+    .userBio {
+        font-size: 16px;
+        margin: -100px 0px 0px 160px;
+        position: absolute;
+    } // END - USER 
+    
+    //   //   //   //   //   //   //  
+    //         START - LABELS 
+    //   //   //   //   //   //   //       
+    .labalsContainers {
+        margin-top: 82px;
+        padding-left: 170px;
+        position: absolute;
+    } // END - LABELS 
+    
+    //   //   //   //   //   //   //  
+    //  START - TABS (REPOS e STARRED)
+    //   //   //   //   //   //   // 
+    .numberRepo,
+    .numberStarred {
+        padding: 2px 2px 2px 6px;
+        border-radius: 5px;
+        font-size: 20px;
+        line-height: 10px;
+    }
+    .tab a {
+        font-size: 25px;
+    }
+    .tabRepo { 
+        height: 70vh;
+        max-height: 70vh;
+        overflow-x: hidden;
+        margin-top: 20px;
+    }
+    .iconSearchRpo {
+        padding-top: 15px;
+    }
+    .cardRepo {
+        margin-top: 60px;
+        margin-bottom: -45px;
+    }
+    .tabStarred {
+        height: 70vh;
+        max-height: 70vh;
+        overflow-x: hidden;
+        margin-top: 20px;
+    }
+    .cardStarred {
+        margin-top: 60px;
+        margin-bottom: -45px;
+        overflow: hidden;
+    }
+    .starredNameTitulo {
+        font-size: 30px;
+    } // END TABS
+    
+    //   //   //   //   //   //   //  
+    //  START - CAROUSEL 
+    //   //   //   //   //   //   // 
+
+    .carouselTop {
+        // background: rgb(29, 29, 29);
+        width: 50%;
+        height: 0%;
+        margin-top:440px; 
+        top:0px; 
+        position: absolute;
+ 
+    }
+    .carousel {
+        height: 350px;
+    }
+    .carousel-item {
+        width: 50%;
+        height: 50%;
+        margin-top:0px; 
+        background: rgb(131, 131, 131);
+        // height: auto;
+    }
+    .imgCarousel {
+        width: 100%;
+        height: 80%;
+        // margin: auto;
+        // height: auto;
+    } //END CAROUSEL
+}

@@ -1,0 +1,22 @@
+@media only screen and (min-width: 266px) {
+    .repoNameDescription {
+        font-size: 12px;
+    }
+    .numberCard {
+        position: absolute; //números de visualização dentro do card REPOS
+        margin: 40px 0px 0px -5px;
+        font-size: 12.5px;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .repoNameTitulo {
+        font-size: 30px;
+    }
+    .repoNameDescription {
+        font-size: 16px;
+    }
+    .treePoints {
+        font-size: 40px;
+    }
+}

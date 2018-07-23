@@ -1,0 +1,190 @@
+<!-- ============================================================== -->
+<!-- ⏩ START     Navbar-fixed - top layout -->
+<!-- ============================================================== -->
+<div class="navbar-fixed">
+    <nav class="blue-grey darken-4">
+        <img class="imgGit" src="./assets/img/gitImg.png" alt=""> 
+            <strong class="gitHubProfile">GitHub  </strong> 
+            <span class="gitHubProfile2">  profile  </span> 
+        <div class="nav-wrapper ">
+            <div class="input-field col s12 inputSearch">
+                <i class="material-icons prefix ">search</i>
+                <input type="text" class="form-control" placeholder="Search Username" 
+                        [(ngModel)]="username" name="username" (keyup.enter)="search()">
+            </div>
+        </div>
+    </nav>
+</div><!-- ⏩ END - Navbar-fixed - top layout -->
+
+<!-- ============================================================================== -->
+<!-- ⏲ START    Section 1 - Header, Tabs(Repos, Starred), mini side-bar (user)  -->
+<!-- =============================================================================== -->
+<section class="section1">
+    <div *ngIf="user " class="contanierTopUser">
+        <!-- move entire layout -->
+        <div class="row">
+            <!-- =========================   START HEADER    ============================ -->
+            <div class="col s12 m6 l6  ">
+                <h3 class="panel-title userName">
+                    <!-- user next to the photo -->
+                    <a href="{{user.html_url}}" target="_blank" style="color: inherit;">
+                        <strong>{{user.name}}</strong>
+                    </a>
+                </h3>
+                <img class="imgUser circle" src="{{user.avatar_url}}">
+                <h6 class="userBio">{{user.bio}}</h6>
+            </div>
+            <div class="col s12 m6 l6 labalsContainers">
+                <!-- info colorful followers ... -->
+                <span class="success green lighten-3">Id: {{user.id}} </span>
+                <span class="primary light-blue">Public Gists: {{user.public_gists}} </span> <br>
+                <span class="info deep-purple lighten-1">Followers: {{user.followers | thousandSuff : 2 }} </span>
+                <span class="warning  lime lighten-2">Following: {{user.following | thousandSuff : 2}} </span>
+            </div>
+            <!-- ===================  END CABEÇALHO    ===================+++++++++========= -->
+
+            <!-- ========================   START MINI SIDEBAR (DISABLE 601px) ============= -->
+            <app-mini-side-bar 
+                (keyup.enter)="search()" 
+                login={{user.login}} 
+                location={{user.location}} 
+                email={{user.email}} 
+                blog={{user.blog}} 
+                created_at={{user.created_at}}>
+            </app-mini-side-bar>
+            <!-- ===================   END  MINI SIDEBAR (DISABLE 601px) ================== -->
+
+            <!-- ============================ START TABS  ================================= -->
+            <!-- OBS: in the package node_modules\materialize-css\dist\materialize.css
+                    .tabs .indicator { height: 5px;  background-color: #e65100 ;}
+                was changed the color and height-->
+            <div class="col s12 m6 l6 tabContainer">
+                <!-- START MENU TABS -->
+                <ul class="tabs animated jello" materialize="tabs"> <!-- Framework-->
+                    <li class="tab col s3 ">
+                        <a class="active" href="#repositories"><!-- ref. repos-->
+                            <span class="numberRepo grey lighten-1">  
+                                {{repos?.length}} 
+                            </span> 
+                                Repos   <!-- tab repos -->
+                        </a>
+                    </li>
+                    <li class="tab col s3 ">
+                        <a href="#favorite">
+                            <span class="numberStarred grey lighten-1">
+                                {{ stars?.length }} 
+                            </span> 
+                            Starred <!-- tab starred -->
+                        </a>
+                    </li>
+                </ul><!-- END MENU TABS -->
+
+
+                <!-- START REPOS (TABS) -->
+                <div id="repositories" class="col s12 tabRepo  animated slideInRight">
+                    <!-- SEARCH REPOS (TABS) -->
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix iconSearchRpo">search</i>
+                        <input type="text" class=""   
+                                [(ngModel)]="searchRepo" 
+                                (keyup)="0" placeholder="Search Repos"> <!-- search repository -->                            
+                    </div>
+                    <br>
+                    <div class="card hoverable cardRepo" 
+                            *ngFor="let repo of repos | gitfilter: searchRepo">
+              
+                        <app-panel-repos
+                            (keyup.enter)="search()" 
+                            html_url="{{repo.html_url}}" 
+                            name="{{repo.name}}" 
+                            description="{{repo.description}}" 
+                            watchers="{{repo.watchers}}" 
+                            forks="{{repo.forks}}">
+                        </app-panel-repos>
+
+                        <!-- START CHAT INTERNAL CARD  -->
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">
+                                <i class="material-icons right">close</i>
+                                <h5>
+                                    <a class="repoNameTitulo" href="{{repo.html_url}}" 
+                                        target="_blank">{{repo.name}}
+                                    </a>
+                                </h5>
+                            </span>
+                            <div class="chip">
+                                <img class="" src="{{user.avatar_url}}"> {{user.name}}
+                            </div>
+                            <p style="margin-top: 0px ">
+                                A ideia aqui é acrescentar, a possibilidade do usuário 
+                                adicionar comentários.
+                            </p>
+                            <div class="chip">
+                                <img class="" src="{{user.avatar_url}}"> {{user.name}}
+                            </div>
+                            <p style="margin-top: 0px ">
+                                Pode ser uma conversa, estática ou um bate papo 
+                                (tipo um twitter 150 caracteres).
+                            </p>
+                            <div class="chip">
+                                <img class="" src="{{user.avatar_url}}"> {{user.name}}
+                            </div>
+                            <p style="margin-top: 0px ">
+                                Acredito que esta funcionalidade fique melhor dentro do
+                                    “STARRED”, mas antes teríamos que testar (UX).
+                            </p>
+                            <input type="text" placeholder="Adicinar comentário">
+                        </div><!-- END CHAT INTERNAL CARD  -->
+                    </div>
+                </div> <!-- END REPOS (TABS) -->
+
+                <!-- START STARRED (TABS) -->
+                <div id="favorite" class="col s12 tabStarred animated slideInRight">
+                    <!-- SEARCH STARREDS (TABS) -->
+                    <div class="input-field col s12  ">
+                        <i class="material-icons prefix iconSearchRpo">search</i>
+                        <input type="text" class="" [(ngModel)]="searchStarred" 
+                                (keyup)="0" placeholder="Search Starred">  <!-- search starreds -->
+                    </div> <br>
+                    <div class="card hoverable cardStarred" 
+                        *ngFor="let star of stars | gitfilter: searchStarred">
+                        <div class="card-content ">
+                            <span class="card-title activator grey-text text-darken-4">                                 
+                                <h5 class="starredNameTitulo">
+                                    <a  href="{{star.html_url}}" target="_blank"> 
+                                        {{star.full_name}}
+                                    </a>
+                                </h5>                           
+                            </span>
+                            <h6 class="repoNameDescription"> {{star.description}}</h6>
+                            <br>
+                            <p class="repoNameDescription">{{star.language }}</p>
+                            <p class="repoNameDescription">1º Commit: {{star.created_at | date}}</p>
+                        </div>
+                        <br>
+                    </div>
+                </div><!-- END STARRED (TABS) -->
+            </div><!-- ============================ END TABS  =============================== -->
+        </div>
+    </div>
+</section><!-- ⏲ End -Section 1 - Header, Tabs(Repos, Starred), mini side-bar (user)  -->
+
+<!-- ============================================================== -->
+<!--  ⛲⛲⛲  START    Section 2 - CAROUSEL                        -->
+<!-- ============================================================== -->
+
+    <div class="carouselTop" *ngIf="user">
+        <div  class="carousel" materialize="carousel">
+            <a class="carousel-item " *ngFor="let following of followings">
+                <h5 class="following"> Following</h5>
+                <a href="{{following.html_url}}" target="_blank">
+                    <img alt="" class="imgCarousel" src="{{following.avatar_url}}">
+                </a>
+                <a style="margin-left:5px;" href="{{following.html_url}}" target="_blank"> {{following.login}}</a>
+            </a>
+        </div>
+    </div>
+    
+<!-- ============================================================== -->
+<!--  ⛲⛲⛲  END    Section 2 - CAROUSEL                        -->
+<!-- ============================================================== -->
